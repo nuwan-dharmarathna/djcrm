@@ -1,0 +1,20 @@
+{% extends '../base.html' %}
+{% block title %} Create Lead {% endblock%}
+{% block content %}
+    <div class="container border border-3 justify-content-center mt-5 rounded rounded-4"
+    style="height: 71vh; width:50%">
+    <div class="row border rounded-4 align-items-center" style="max-height: 10vh; height: 10vh">
+        <p class="h1">Create a Lead </p>
+    </div>
+    <div class="row border rounded-4 align-items-center" style="height: 50vh;">
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+    <div class="row border rounded-4 align-items-end" style="height: 10vh;">
+        <button type="button" class="btn btn-warning btn-lg">Create</button> 
+    </div>
+    </div>  
+{% endblock %}

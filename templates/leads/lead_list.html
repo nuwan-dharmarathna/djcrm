@@ -1,0 +1,37 @@
+{% extends '../base.html' %}
+{% block title %}Lead List{% endblock %}
+
+{% block content %}
+{% include './../navbar.html' %}
+<div class="container mt-5 justify-content-end">
+    <div class="row justify-content-end">
+        <a href="{% url 'leads:lead-create'%}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true" style="width: 5cm;">Create new Lead</a>
+    </div>
+    <div class="row-flex border border-3 mt-3 overflow-auto rounded" style="max-height: 40vh; ">
+        <table class="table ">
+            <thead class="text-center" style="position: sticky;">
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Agent</th>
+                    <th scope="col">More</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for lead in leads %}
+                <tr class="text-center">
+                    <th scope="row">{{lead.pk}}</th>
+                    <td>{{lead.frist_name}}</td>
+                    <td>{{lead.last_name}}</td>
+                    <td>{{lead.age}}</td>
+                    <td>{{lead.agent}}</td>
+                    <td> <a href="{% url 'leads:lead-detail' lead.pk %}"> <i class="bi bi-eye"></i> </a> </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

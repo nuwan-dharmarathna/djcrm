@@ -1,0 +1,26 @@
+{% extends '../base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+{% include '../navbar.html' %}
+    <div class="container border border-3 justify-content-center mt-5 rounded rounded-4"
+        style="height: 71vh; width:50%">
+        <div class="row border rounded-4 align-items-center" style="max-height: 10vh; height: 10vh">
+            <p class="h2">Details of : {{lead.frist_name}} </p>
+        </div>
+        <div class="row border rounded-4 align-items-center" style="height: 50vh;">
+            <div class="row"><p class="h4">First Name: {{lead.frist_name}} </p></div>
+            <div class="row"><p class="h4">Last Name:  {{lead.last_name}} </p></div>
+            <div class="row"><p class="h4">Age: {{lead.age}} </p></div>
+            <div class="row"><p class="h4">Source: {{lead.source}} </p></div>
+            <div class="row"><p class="h4">Agent: {{lead.agent}} </p></div>
+        </div>
+        <div class="row border rounded-4 align-items-center" style="height: 10vh;">
+            <div class="col-lg-6">
+                <a href="{% url 'leads:lead-update' lead.pk %}" class="btn btn-success btn-lg justify-content-center" tabindex="-1" role="button" aria-disabled="true">Edit</a>
+            </div>
+            <div class="col-lg-6">
+                <button type="button" class="btn btn-danger btn-lg justify-content-center">Delete Lead</button>
+            </div>    
+        </div>
+    </div>
+{% endblock %}
